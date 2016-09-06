@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+</head>
+
+<body>
+
+	<table id="resultsBlock" th:fragment="shows"
+		class="table table-fixed">
+		<thead>
+			<tr>
+				<th class="col-xs-3">Title</th>
+				<th class="col-xs-3">Episodes</th>
+				<th class="col-xs-6">Air Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="show : ${shows}">
+				<td class="col-xs-3" th:text="${show.title}" />
+				<td class="col-xs-3" th:text="${show.episodes}" />
+				<td class="col-xs-6" th:text="${show.airDate}" />
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+</html>

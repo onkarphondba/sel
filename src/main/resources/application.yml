@@ -1,0 +1,33 @@
+spring.profiles.active: dev
+
+spring.jpa.hibernate.ddl-auto: update
+
+# Introduce latency in Controllers by adding a value greater than zero.  Latency is in seconds.
+client:
+  latency: 0
+  
+ribbon:
+  eureka:
+   enabled: false
+
+spring:
+  application:
+    name: shows
+    
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+    com:
+      cglean:
+        cloudnative:
+          demo: DEBUG 
+
+# Using macros that are replaced by maven build
+info:
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
