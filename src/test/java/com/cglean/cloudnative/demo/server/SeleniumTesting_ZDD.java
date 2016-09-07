@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
+import org.openqa.selenium.firefox.FirefoxBinary;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 
 public class SeleniumTesting_ZDD {
 	
@@ -17,7 +20,11 @@ public class SeleniumTesting_ZDD {
 			{
 				//System.setProperty("webdriver.chrome.driver", "/var/lib/jenkins/workspace/seleniumProject/chromedriver.exe");
 				//WebDriver driver = new ChromeDriver();
-				WebDriver driver = new FirefoxDriver();
+				File pathToBinary = new File("C:\\Users\\ophondba\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+				FirefoxBinary ffBinary = new FirefoxBinary(pathToBinary);
+				FirefoxProfile firefoxProfile = new FirefoxProfile(); 
+				
+				WebDriver driver = new FirefoxDriver(ffBinary,firefoxProfile);
 				driver.navigate().to("http://shows-cgleanv1.cglean.com/");
 				driver.manage().window().maximize();
 				Thread.sleep(1000);
